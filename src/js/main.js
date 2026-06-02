@@ -41,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // CTA que rola até contato
-  if (ctaButton && contatoSection) {
+  // CTA que abre o WhatsApp em nova aba
+  if (ctaButton) {
+    const whatsappUrl = 'https://wa.me/5565992469351?text=Olá%20Seleta%20Cuiabá%2C%20gostaria%20de%20mais%20informações.';
     ctaButton.addEventListener('click', () => {
-      // rola até a seção de contato, centralizando
-      contatoSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      window.open(whatsappUrl, '_blank');
     });
   }
 
@@ -58,3 +58,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+const imagens = [
+  "src/images/foto1.png",
+  "src/images/foto2.png",
+  "src/images/foto3.png",
+  "src/images/foto4.png",
+  "src/images/foto5.png",
+];
+  
+let indice = 0;
+
+function proxima() {
+    indice++;
+
+    if (indice >= imagens.length) {
+        indice = 0;
+    }
+
+    document.getElementById("imagem").src = imagens[indice];
+}
+
+function anterior() {
+    indice--;
+
+    if (indice < 0) {
+        indice = imagens.length - 1;
+    }
+
+    document.getElementById("imagem").src = imagens[indice];
+}
